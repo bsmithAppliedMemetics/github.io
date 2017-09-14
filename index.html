@@ -1,1 +1,18 @@
-<h1>Hello World</h1>
+<h1 id="name">Hello World</h1>
+
+<style type="text/css" >
+	.colored {
+		color: yellow;
+	}
+</style>
+
+<script>
+	var name = document.getElementById('name');
+
+	name.addEventListener('click', function(e) {
+		name.classList.addClass('colored');
+	});
+
+
+
+</script>
