@@ -1,1 +1,112 @@
-<h1 id="name">Hello World</h1>
+<div class="startup-name">
+    <form>
+      <label>Brands:</label>
+      <input id="brandInput" type="text" required name="brands" />
+      <label>Animals:</label>
+      <input id="animalInput" type="text" required name="animals" />
+      <input id="submit" type="submit" />
+    </form>
+  <div id="name"></div>
+</div>
+
+<script type="text/javascript">
+	// Part 1 & 2
+	var brands = ["Coke", "Pepsi", "Honest Tea", "Smart Water", "Dasani"];
+    var animals = ["Cheetas", "Ants", "Cats", "Hippos", "Doggies"];
+
+    // Part 3
+    function publishConsole(arrayOne, arrayTwo) {
+    	for(i = 0; i < arrayOne.length; i++) {
+    		console.log('What is this? A ' + arrayOne[i] + ' for ' + arrayTwo[i] + '!');
+    	}
+    }
+   	// publishConsole(brands, animals);
+
+
+    // Bonus, Randomize arrays
+   	function randomizer(array) {
+	    array.sort(function(a, b){
+	    	return 0.5 - Math.random();
+	    });
+	    return array;
+	}
+
+	// publishConsole(randomizer(brands), randomizer(animals));
+
+	// Bonus render content
+	function publishHTML(arrayOne, arrayTwo) {
+    	for(i = 0; i < arrayOne.length; i++) {
+    		createInnerText(arrayOne[i], arrayTwo[i]);
+    	}
+    }
+
+    function createInnerText(value1, value2) {
+        // Create new <p> node to hold content
+        var node = document.createElement('P');
+        var innerText = document.createTextNode('What is this? A ' + value1 + ' for ' + value2 + '! ');
+
+        // Create delete button
+        var button = document.createElement('BUTTON');
+        var btnText = document.createTextNode('Delete');
+
+        // Append children
+        node.appendChild(innerText);
+        button.appendChild(btnText);
+        node.appendChild(button);
+
+        // Add to DOM
+        document.getElementById('name').appendChild(node);
+    }
+    publishHTML(brands, animals);
+
+    // Extra bonus
+    // Add new things to arrays
+    document.getElementById('submit').addEventListener('click', function(e) {
+        e.preventDefault();
+        var newBrand = document.getElementById('brandInput');
+        var newAnimal = document.getElementById('animalInput');
+
+        if(newBrand.value.length != 0 && newAnimal.value.length != 0) {
+            // Push into the arrays
+            brands.push(newBrand.value);
+            animals.push(newAnimal.value);
+
+            // Render the HTML
+            createInnerText(newBrand.value, newAnimal.value);
+
+            // Call removeChild() to add event listener
+            removeChild();
+
+            // Reset inputs
+            newBrand.value = '';
+            newAnimal.value = '';
+        } else {
+            alert('Please insert text');
+        }
+    });
+
+    function removeChild() {
+        var remover = document.querySelectorAll('#name p button');
+        for(i = 0; i < remover.length; i++) {
+            // Create key for each element
+            remover[i].setAttribute('key', i);
+            remover[i].addEventListener('click', function() {
+                // Remove DOM node
+                this.parentNode.remove();
+
+                // Grab key value to remove from array
+                var key = parseInt(this.getAttribute('key'));
+
+                // Remove from array
+                brands.splice(key, 1);
+                animals.splice(key, 1);
+
+                console.log(brands);
+                console.log(animals);
+            });
+        }
+    }
+   removeChild();
+
+
+</script>
