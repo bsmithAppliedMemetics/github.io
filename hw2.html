@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HW #2</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	var dog = ['Shiba', 'Husky', 'Malamute', 'Blue Heeler', 'Beagle'];
+	var input = prompt('Provide a breed:');
+	var randDog = dog[(Math.floor(Math.random() * dog.length))];
+	console.log("Your favorite breed is " + input + "? Mine is " + randDog + "!");
+
+	(input == randDog ? console.log("We're besties!") : console.log("You're wrong!"));
+
+
+</script>
+</html>
