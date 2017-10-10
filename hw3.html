@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HW #3, Closure</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+/*
+* Use a self-executing closure plus functions to time a road trip. Your example will have multiple statements but only one function.
+* Assume 60mph
+* Enter various miles lengths from city to city.
+* Get the mileage from Google Maps
+* Return the full length of time in the console.
+*/
+(function calculateTime() {
+	var speed = 60;
+	var cities = {"Boston": 441, "Tulsa": 1259, "Nashville": 666, "Austin": 1524};
+	var distance;
+	var time;
+	for(var city in cities) {
+		return function () {
+			return distance + cities[city];
+		}
+		return function () {
+			return time = time + distance * speed;
+		}
+		console.log(time);
+	}
+})();
+
+
+
+</script>
+</html>
