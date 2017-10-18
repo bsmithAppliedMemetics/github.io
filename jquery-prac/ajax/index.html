@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery AJAX Work</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script type="text/javascript" src="./script.js"></script>
+  <style type="text/css">
+  	form {
+  		margin: 10px 0 20px 0;
+  	}
+
+  	#list, #read {
+  		border: 1px solid #333;
+  		text-align: left;
+  	}
+
+  	.read-item {
+  		opacity: 0.6;
+  	}
+
+  </style>
+</head>
+<body>
+	<form id="bookSearch">
+		<input id="title" type="text" name="title" placeholder="Enter Title" required>
+		<input id="author" type="text" name="author" placeholder="Enter Author" required>
+		<button type="submit">Submit</button>
+	</form>
+	<table id="list" style="width:100%">
+		<tr>
+		    <th>Book Title</th>
+		    <th>Author</th> 
+		    <th>Date Published</th>
+		    <th>Add to list?</th>
+		</tr>
+	</table>
+	<h3>Books I have read</h3>
+	<table id="read" style="width:100%">
+		<tr>
+		    <th>Book Title</th>
+		    <th>Author</th> 
+		    <th>Date Published</th>
+		    <th>Delete from list</th>
+		</tr>
+	</table>
+</body>
+</html>
